@@ -1,0 +1,171 @@
+.slant-right {
+    margin-bottom: -1px;
+    clip-path: polygon(0 0, 65% 0, 100% 100%, 0 100%);
+}
+
+.slant-left {
+    margin-bottom: -1px;
+    clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.shape {
+    width: 1rem;
+    height: 1rem;
+    background: #000000;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 20%);
+}
+
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Move up by 20px */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveUpDownSmall {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Move up by 20px */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.image-animate {
+    animation: moveUpDown 4s infinite; /* 4 seconds duration, infinite loop */
+}
+.verify-cert {
+    animation: moveUpDownSmall 4s infinite; /* 4 seconds duration, infinite loop */
+}
+
+@media (min-width: 768px) {
+    .shape {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: #000000;
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%, 0 30%);
+    }
+}
+
+
+
+.circle-container {
+    position: relative;
+    height: 10rem;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotate-circle 10s linear infinite;
+}
+
+.item {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 0;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5; /* Default opacity */
+    transition: opacity 0.3s ease;
+}
+
+
+.label {
+    margin-top: 5px;
+    font-size: 12px;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+@keyframes rotate-circle {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Hover effect to pause animation */
+.circle-container:hover .circle {
+    animation-play-state: paused;
+}
+
+/* Position items in a circular arrangement */
+.item:nth-child(1) {
+    transform: rotateY(0deg) translateZ(120px);
+}
+
+.item:nth-child(2) {
+    transform: rotateY(72deg) translateZ(120px);
+}
+
+.item:nth-child(3) {
+    transform: rotateY(144deg) translateZ(120px);
+}
+
+.item:nth-child(4) {
+    transform: rotateY(216deg) translateZ(120px);
+}
+
+.item:nth-child(5) {
+    transform: rotateY(288deg) translateZ(120px);
+}
+
+
+
+
+.web-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .web {
+    width: 100%;
+    height: auto;
+  }
+  
+  .spider {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transition: top 0.1s, left 0.1s; /* Smooth transition for position */
+  }
+  .spider.blast {
+    background: red;
+    transform: scale(2);
+    opacity: 0;
+  }
+  
+  /* Explosion animation */
+@keyframes explode {
+    0% {
+      transform: scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  .explosion {
+    position: absolute;
+    animation: explode 0.5s ease-out;
+  }
+  
