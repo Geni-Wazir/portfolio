@@ -23,9 +23,9 @@
 				<img src="{{ url_for('static', filename='logo.png') }}" class="h-10 md:h-14 object-contain" alt="Logo" />
 			</a>
 			<!-- Centered Navigation -->
-			<ul class="flex flex-wrap justify-center space-x-6 md:space-x-8 font-medium w-full md:w-auto mt-2 md:mt-0 text-gray-500 md:text-gray-700">
+			<ul class="flex flex-wrap justify-center space-x-6 md:space-x-8 font-medium w-full md:w-auto mt-2 md:mt-0 text-gray-700 md:text-gray-700">
 				<li>
-					{% if title == 'Experience' %}
+					{% if 'Experience' in title %}
 					<a href="{{ url_for('experience') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
 					{% else %}
 					<a href="{{ url_for('experience') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
@@ -58,7 +58,7 @@
 					</a>
 				</li>
 				<li>
-					{% if title == 'Achievements' %}
+					{% if 'Achievements' in title %}
 					<a href="{{ url_for('achievements') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
 					{% else %}
 					<a href="{{ url_for('achievements') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
@@ -78,7 +78,7 @@
 					</a>
 				</li>
 				<li>
-					{% if title == 'Projects' %}
+					{% if 'Projects' in title %}
 					<a href="{{ url_for('projects') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
 					{% else %}
 					<a href="{{ url_for('projects') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
@@ -103,7 +103,7 @@
 					</a>
 				</li>
 				<li>
-					{% if title == 'Blogs' %}
+					{% if 'Blogs' in title %}
 					<a href="{{ url_for('blogs') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
 					{% else %}
 					<a href="{{ url_for('blogs') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
