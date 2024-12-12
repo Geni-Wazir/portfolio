@@ -5,7 +5,7 @@
     <div class="w-3/5 md:w-2/4 lg:w-2/5 h-12 md:h-16 bg-white slant-right mt-2 md:mt-0"></div>
     <div class="bg-white pb-10 min-h-screen">
         <h1 class="-translate-y-8 md:-translate-y-10 font-extrabold text-2xl md:text-5xl lg:text-6xl pl-2 md:pl-5 lg:pl-10 text-black">Bl<span class="text-[#B8241A]">ogs</span></h1>
-        <div class="relative w-full flex items-center max-w-xs md:max-w-lg mx-auto pt-1">
+        <div class="relative w-full flex items-center max-w-xs md:max-w-xl mx-auto pt-1">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2"/>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="flex gap-1 flex-wrap">
                                 {% for tag in blog.tags %}
-                                <span class="tag rounded-xl px-2 whitespace-nowrap border text-white capitalize">{{ tag }}</span>
+                                <span class="rounded-xl px-2 whitespace-nowrap border border-violet-300 bg-violet-200 text-violet-800">{{ tag }}</span>
                                 {% endfor %}
                             </div>
                         </div>
@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     const tailwindColors = [
         'bg-red-200 border-red-300 text-red-800',
         'bg-orange-200 border-orange-300 text-orange-800',
@@ -97,6 +97,6 @@ blogTitles.forEach(blogTitle => {
     // Update the title HTML structure with two different colors, ensuring no word is split
     blogTitle.innerHTML = `<span class="text-black">${firstHalf}</span> <span class="text-[#B8241A]">${secondHalf}</span>`;
 });
-</script>
+</script> -->
 
 {% endblock content %}
