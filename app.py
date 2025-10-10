@@ -2,6 +2,8 @@ from flask import Flask, render_template
 import feedparser
 from bs4 import BeautifulSoup
 from datetime import datetime
+from urllib.parse import urlparse, urlunparse
+
 
 app = Flask(__name__)
 
@@ -34,7 +36,7 @@ def blogs():
             post={}
             post['title'] = entry.title
             post['author'] = entry.author
-            post['url'] = entry.link
+            post['url'] = urlunparse(urlparse(entry.link)._replace(query=""))
             date_object = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
             post['date'] = date_object
             soup = BeautifulSoup(entry.summary, "html.parser")
