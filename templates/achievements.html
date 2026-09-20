@@ -1,104 +1,179 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="text-black">
-    <div class="w-3/5 md:w-2/4 lg:w-2/5 h-12 md:h-16 bg-white slant-right mt-2 md:mt-0"></div>
-    <div class="bg-white">
-        <h1 class="-translate-y-8 md:-translate-y-10 font-extrabold text-3xl md:text-5xl lg:text-6xl pl-2 md:pl-5 lg:pl-10 text-black">Certif<span class="text-[#B8241A]">icates</span></h1>
-        <div class="max-w-5xl flex justify-center mx-auto pt-5 pb-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-10">
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm">
-                    <img src="{{ url_for('static', filename='oscp_cert.png') }}">
-                    <div class="text-center font-extrabold text-xl md:text-2xl py-3 relative">
-                        <p class="text-black text-center">Offensive Security <span class="text-[#B8241A]">Certified Professional [OSCP]</span></p>
-                    </div>
+{% set certifications = [
+    {
+        'logo': 'cert-logos/cpts.png',
+        'chip': False,
+        'title_accent': 'Certified Penetration',
+        'title_rest': 'Testing Specialist (CPTS)',
+        'issuer': 'Hack The Box',
+        'description': 'Advanced penetration testing skills covering infrastructure, web, and network security.',
+    },
+    {
+        'logo': 'cert-logos/oscp.png',
+        'chip': False,
+        'title_accent': 'Offensive Security',
+        'title_rest': 'Certified Professional (OSCP)',
+        'issuer': 'OffSec',
+        'description': 'Hands-on certification focused on real-world penetration testing and exploit development.',
+    },
+    {
+        'logo': 'cert-logos/ceh.png',
+        'chip': True,
+        'title_accent': 'Certified Ethical',
+        'title_rest': 'Hacker (CEH Practical)',
+        'issuer': 'EC-Council',
+        'description': 'Practical hands-on skills in ethical hacking and vulnerability assessment.',
+    },
+    {
+        'logo': 'cert-logos/oci.png',
+        'chip': False,
+        'title_accent': 'Oracle Cloud Infrastructure',
+        'title_rest': 'Foundations Associate (OCI)',
+        'issuer': 'Oracle',
+        'description': 'Foundational knowledge of Oracle Cloud Infrastructure and core cloud services.',
+    },
+] %}
+
+{% set talks = [
+    {
+        'logo': 'speaker-logos/disney.png',
+        'date': 'Dec 2021',
+        'location': 'Singapore',
+        'category': 'Workshop',
+        'title': 'Walt Disney, Singapore',
+        'description': 'Led a workshop for the Walt Disney Singapore branch, focusing on enhancing cyber awareness and sharing best security practices with their employees.',
+    },
+    {
+        'logo': 'speaker-logos/vit_bhopal.png',
+        'date': 'Mar 2023',
+        'location': 'Bhopal, India',
+        'category': 'Guest Talk',
+        'title': 'VIT Bhopal',
+        'description': 'Invited as a guest speaker to discuss the future of cybersecurity, explore career opportunities in the field, and offer placement guidance to final-year students.',
+    },
+    {
+        'logo': 'speaker-logos/shah_anchor.png',
+        'date': 'Jan 2022',
+        'location': 'Mumbai, India',
+        'category': 'Workshop',
+        'title': 'Shah & Anchor Kutchhi Engineering College',
+        'description': 'Conducted a workshop on cybersecurity and promoted cyber awareness among students.',
+    },
+    {
+        'logo': 'speaker-logos/e_webinar.png',
+        'date': 'Apr 2022',
+        'location': 'Online',
+        'category': 'Webinar',
+        'title': 'International e-Webinar',
+        'description': "Guest speaker for the International e-Webinar organized by the Tarangan Alumni Association in collaboration with L.T. College of Nursing and S.N.D.T. Women's University.",
+    },
+    {
+        'logo': 'speaker-logos/vit.png',
+        'date': 'Sept 2021',
+        'location': 'Mumbai, India',
+        'category': 'Workshop',
+        'title': 'Vidyalankar Institute of Technology',
+        'description': 'Discussed the future of cybersecurity and explored career opportunities in the field with students at a workshop.',
+    },
+] %}
+
+{% set category_colors = {
+    'Workshop': 'text-[#2F80ED] bg-[#2F80ED]/10',
+    'Guest Talk': 'text-violet-500 bg-violet-500/10',
+    'Webinar': 'text-emerald-500 bg-emerald-500/10',
+} %}
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-10 md:pt-14 pb-28 md:pb-20">
+    <div class="lg:flex lg:items-start lg:justify-between lg:gap-10">
+        <div class="max-w-xl">
+            <p class="uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs font-semibold text-gray-500 dark:text-gray-400">
+                Achievements
+            </p>
+            <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                Certifications &amp; <span class="text-[#2F80ED]">Talks</span>
+            </h1>
+            <p class="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300">
+                A collection of certifications I've earned and talks I've delivered, reflecting my commitment to continuous learning and knowledge sharing.
+            </p>
+        </div>
+    </div>
+
+    <div class="mt-14 md:mt-16 flex items-center gap-3">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-[#2F80ED]/10 flex items-center justify-center text-[#2F80ED]">
+            <svg class="w-6 h-6" viewBox="-5.5 0 154 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36.9723 124.313C37.3464 117.996 37.6765 112.228 38.0336 106.46C38.327 101.728 40.0197 99.7842 44.721 99.1239C47.4186 98.7452 50.1732 98.7786 52.878 98.4373C53.829 98.3172 55.2054 97.8722 55.5434 97.1699C58.1372 91.7735 60.5388 86.2839 62.9488 80.8008C63.1213 80.1175 63.1981 79.4135 63.1772 78.7091C57.093 76.8799 51.1006 74.6326 46.9978 69.8151C42.8445 64.9346 37.7802 62.9576 31.761 61.6509C23.9358 59.9278 16.6383 56.3524 10.4812 51.2249C6.25376 47.7388 3.05731 43.1657 1.23601 37.9978C-2.52612 27.799 5.19504 11.359 19.8924 11.8959C23.4806 12.0271 27.0773 11.9149 30.6892 11.9149C31.4111 9.33224 31.9362 7.11444 32.6674 4.97018C33.3795 2.88893 34.6213 1.49558 37.1659 1.3991C46.7557 1.03812 56.3349 0.289851 65.926 0.111983C78.1627 -0.114453 90.4074 0.0713539 102.649 0.0785736C111.156 0.0844807 112.256 0.931813 114.388 9.2673C116.93 9.2673 119.513 9.2673 122.095 9.2673C124.064 9.2673 126.033 9.18256 127.994 9.27379C136.78 9.68138 142.926 16.3662 142.129 25.1217C140.479 43.2215 126.744 57.6105 111.091 59.9228C107.08 60.5135 104.987 61.9719 102.901 65.228C98.1226 72.6794 91.2009 77.4726 81.9964 79.477C82.4053 80.8068 82.7236 82.0158 83.1476 83.1867C85.1862 88.8246 88.7376 93.5371 92.4912 98.0953C93.0025 98.7169 94.1511 99.0142 95.0365 99.087C96.9918 99.2511 98.9673 99.1527 100.934 99.2079C105.911 99.3463 107.27 100.586 107.704 105.62C108.107 110.3 108.371 114.991 108.71 119.676C108.764 120.422 108.888 121.163 109.005 122.111C110.595 122.189 112.107 122.197 113.604 122.348C117.702 122.762 119.964 124.819 120.436 128.935C121.158 135.215 121.86 141.507 122.215 147.814C122.478 152.449 120.781 153.768 116.105 153.671C95.7854 153.252 75.4658 152.764 55.1437 152.532C46.8456 152.438 38.5383 152.992 30.2376 153.135C24.2781 153.238 22.5335 150.934 23.3093 144.962C23.8429 140.856 24.0359 136.692 24.196 132.552C24.4369 126.317 25.2462 125.507 31.9408 124.348C33.4064 124.096 34.9547 124.313 36.9723 124.313ZM38.8855 6.83945C38.7167 7.0527 38.5768 7.28727 38.4694 7.53713C38.3525 8.06968 38.2666 8.60863 38.2121 9.15113C36.8456 22.4452 38.3126 35.8778 42.5164 48.5635C46.2575 59.8657 53.8953 67.7778 65.9529 70.6565C82.2589 74.5499 93.6746 68.6652 99.9584 53.087C103.115 45.2602 105.455 37.2312 106.052 28.7638C106.561 21.5539 106.037 14.4038 105.042 6.84209L38.8855 6.83945ZM114.452 130.551L30.1044 131.47C30.5947 136.596 31.0534 141.395 31.4617 145.662L113.01 144.719C113.476 140.142 113.947 135.518 114.452 130.551ZM45.1588 105.708C45.8584 112.186 46.4715 117.85 47.0825 123.526L97.7006 122.501C98.2821 117.22 98.8164 112.397 99.3913 107.153L45.1588 105.708ZM30.4568 18.1882C26.4 18.754 22.7521 19.3158 19.0897 19.7595C15.3912 20.2078 12.9569 22.2634 11.1972 25.4237C8.47279 30.3154 8.9657 35.9592 12.7003 40.7229C16.7407 45.8751 22.2113 48.9855 28.1655 51.3431C30.4319 52.2403 32.7849 52.9183 35.5959 53.8634C31.4676 42.0021 30.6662 30.3836 30.4555 18.1882H30.4568ZM109.971 50.1925C119.671 47.2679 126.045 41.6431 129.872 33.3352C131.257 30.1503 132.161 26.777 132.553 23.326C133.001 19.9019 131.341 17.7471 128.228 17.5292C123.823 17.2168 119.379 17.4498 114.693 17.4498C115.284 28.5683 113.68 39.6944 109.97 50.1925H109.971ZM63.7699 98.333H81.638C79.3258 92.2946 77.0575 86.366 74.6907 80.1839L70.1206 79.9411C68.0072 86.0673 65.9667 91.9678 63.7686 98.333H63.7699Z" fill="currentColor" />
+            </svg>
+        </div>
+        <div>
+            <h2 class="font-bold text-gray-900 dark:text-white">Certifications</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Professional certifications that validate my skills and knowledge.</p>
+        </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for cert in certifications %}
+        <div class="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5 hover:shadow-lg hover:border-[#2F80ED]/40 transition-all hover:-translate-y-0.5">
+            <div class="flex items-start gap-4">
+                {% if cert.chip %}
+                <div class="shrink-0 w-14 h-14 rounded-xl bg-white border border-gray-200 flex items-center justify-center p-1.5">
+                    <img src="{{ url_for('static', filename=cert.logo) }}" alt="{{ cert.title_accent }} {{ cert.title_rest }} logo" class="max-w-full max-h-full object-contain" />
                 </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm">
-                    <img src="{{ url_for('static', filename='ceh_cert.jpg') }}" class="md:h-[21.2rem]">
-                    <div class="text-center font-extrabold text-xl md:text-2xl py-3 relative">
-                        <p class="text-black text-center">Certified Ethical <span class="text-[#B8241A]">Hacker <span class="whitespace-nowrap">[CEH Practical]</span></span></p>
-                    </div>
-                </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm">
-                    <img src="{{ url_for('static', filename='oci_cert.png') }}">
-                    <div class="text-center font-extrabold text-xl md:text-2xl py-3 relative">
-                        <p class="text-black text-center">Oracle Cloud Infrastructure <span class="text-[#B8241A]">Foundations Associate [OCI]</span></p>
-                    </div>
+                {% else %}
+                <img src="{{ url_for('static', filename=cert.logo) }}" alt="{{ cert.title_accent }} {{ cert.title_rest }} logo" class="shrink-0 w-14 h-14 object-contain" />
+                {% endif %}
+                <div class="flex-1 min-w-0">
+                    <p class="font-semibold text-gray-900 dark:text-white">
+                        {{ cert.title_accent }} {{ cert.title_rest }}
+                    </p>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ cert.issuer }}</p>
                 </div>
             </div>
+            <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">{{ cert.description }}</p>
         </div>
-        <div class="pt-2">
-            <h2 class="-translate-y-8 md:-translate-y-10 font-extrabold text-3xl md:text-5xl lg:text-6xl pl-2 md:pl-5 lg:pl-10 text-black">Guest <span class="text-[#B8241A]">Speaker</span></h2>
-            <div class="max-w-5xl flex justify-center mx-auto pt-5 pb-20">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-10">
-                    <div class="rounded-lg shadow-xl backdrop-blur-sm p-4 pt-0 bg-[#FFF5F6] flex flex-col justify-center">
-                        <img src="{{ url_for('static', filename='disney.png') }}" class="mix-blend-multiply md:h-[12rem] object-contain">
-                        <div class="pt-2">
-                            <p class="flex items-center px-2">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path></svg>
-                                <span>Dec 2021</span>
-                            </p>
-                            <p class="flex items-start md:items-center pt-3">
-                                <svg class="w-6 md:w-20 flex-none pt-1 md:pt-0" fill="#B8241A" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M253.75,128.106c-23.675,0-42.936,19.261-42.936,42.936c0,23.676,19.261,42.937,42.936,42.937 c23.676,0,42.937-19.261,42.937-42.937C296.687,147.367,277.426,128.106,253.75,128.106z M253.75,197.81 c-14.76,0-26.767-12.009-26.767-26.768c0-14.76,12.008-26.767,26.767-26.767c14.76,0,26.768,12.007,26.768,26.767 C280.519,185.801,268.51,197.81,253.75,197.81z"></path> <path d="M297.046,378.572V346.76h0.621c38.468,0,69.762-31.294,69.762-69.762V69.761C367.43,31.295,336.135,0,297.667,0h-81.894 c-38.468,0-69.762,31.295-69.762,69.761V277c0,36.676,28.455,66.811,64.445,69.539v32.035c0,11.165,8.758,20.299,19.761,20.955 v58.63h-58.726c-14.844,0-26.92,12.077-26.92,26.922S156.647,512,171.492,512h26.209c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-26.209c-5.93,0-10.752-4.824-10.752-10.753s4.824-10.753,10.752-10.753h66.81h30.9h65.7 c5.93,0,10.754,4.824,10.754,10.753s-4.825,10.753-10.754,10.753h-112.41c-4.466,0-8.084,3.619-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h112.41c14.846,0,26.923-12.077,26.923-26.922s-12.077-26.922-26.923-26.922h-57.617v-58.63 C288.288,398.871,297.046,389.737,297.046,378.572z M162.179,244.658h30.681c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.597h30.681c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084h-30.681 v-16.599h30.681c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681 c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681c4.466,0,8.084-3.619,8.084-8.084 s-3.619-8.084-8.084-8.084h-30.681V77.846h109.357c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084H162.789 c3.909-25.729,26.18-45.509,52.984-45.509h81.895c26.804,0,49.074,19.779,52.984,45.509h-54.324 c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h54.934v19.577h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.619-8.084,8.084s3.618,8.084,8.084,8.084h30.681 v16.598h-30.681c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681 c-4.466,0-8.084,3.618-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v24.255H162.179V244.658z M215.773,330.592c-26.804,0-49.074-19.78-52.984-45.51h187.862 c-3.91,25.73-26.18,45.51-52.984,45.51h-8.705H218.54H215.773z M261.117,458.158h-14.732v-58.566h14.732V458.158z M276.027,383.423h-6.826h-30.9h-6.826c-2.675,0-4.851-2.176-4.851-4.851v-31.812h54.254v31.812 C280.878,381.247,278.702,383.423,276.027,383.423z"></path> </g> </g> </g> </g></svg>
-                                <span>It was a true honor to lead a workshop for the <strong>Walt Disney Singapore branch</strong>, focusing on enhancing cyber awareness and sharing best security practices with their employees.</span>
-                            </p>
-                        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-14 md:mt-16 flex items-center gap-3">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-[#2F80ED]/10 flex items-center justify-center text-[#2F80ED]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+            </svg>
+        </div>
+        <div>
+            <h2 class="font-bold text-gray-900 dark:text-white">Guest Speaker</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Opportunities to share knowledge, experiences, and insights with diverse audiences.</p>
+        </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for talk in talks %}
+        <div class="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5 flex flex-col hover:shadow-lg hover:border-[#2F80ED]/40 transition-all hover:-translate-y-0.5">
+            <div class="flex items-start justify-between gap-2">
+                <div class="flex items-center gap-4">
+                    <div class="shrink-0 w-14 h-14 rounded-xl bg-white border border-gray-200 flex items-center justify-center p-2">
+                        <img src="{{ url_for('static', filename=talk.logo) }}" alt="{{ talk.title }} logo" class="max-w-full max-h-full object-contain" />
                     </div>
-                    <div class="rounded-lg shadow-xl backdrop-blur-sm p-4 pt-0 bg-[#FFF5F6] flex flex-col justify-center">
-                        <img src="{{ url_for('static', filename='vit_bhopal.png') }}" class="mix-blend-multiply md:h-[12rem] object-contain">
-                        <div class="pt-2">
-                            <p class="flex items-center px-2">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path></svg>
-                                <span>Mar 2023</span>
-                            </p>
-                            <p class="flex items-start md:items-center pt-3">
-                                <svg class="w-6 md:w-20 flex-none pt-1 md:pt-0" fill="#B8241A" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M253.75,128.106c-23.675,0-42.936,19.261-42.936,42.936c0,23.676,19.261,42.937,42.936,42.937 c23.676,0,42.937-19.261,42.937-42.937C296.687,147.367,277.426,128.106,253.75,128.106z M253.75,197.81 c-14.76,0-26.767-12.009-26.767-26.768c0-14.76,12.008-26.767,26.767-26.767c14.76,0,26.768,12.007,26.768,26.767 C280.519,185.801,268.51,197.81,253.75,197.81z"></path> <path d="M297.046,378.572V346.76h0.621c38.468,0,69.762-31.294,69.762-69.762V69.761C367.43,31.295,336.135,0,297.667,0h-81.894 c-38.468,0-69.762,31.295-69.762,69.761V277c0,36.676,28.455,66.811,64.445,69.539v32.035c0,11.165,8.758,20.299,19.761,20.955 v58.63h-58.726c-14.844,0-26.92,12.077-26.92,26.922S156.647,512,171.492,512h26.209c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-26.209c-5.93,0-10.752-4.824-10.752-10.753s4.824-10.753,10.752-10.753h66.81h30.9h65.7 c5.93,0,10.754,4.824,10.754,10.753s-4.825,10.753-10.754,10.753h-112.41c-4.466,0-8.084,3.619-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h112.41c14.846,0,26.923-12.077,26.923-26.922s-12.077-26.922-26.923-26.922h-57.617v-58.63 C288.288,398.871,297.046,389.737,297.046,378.572z M162.179,244.658h30.681c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.597h30.681c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084h-30.681 v-16.599h30.681c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681 c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681c4.466,0,8.084-3.619,8.084-8.084 s-3.619-8.084-8.084-8.084h-30.681V77.846h109.357c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084H162.789 c3.909-25.729,26.18-45.509,52.984-45.509h81.895c26.804,0,49.074,19.779,52.984,45.509h-54.324 c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h54.934v19.577h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.619-8.084,8.084s3.618,8.084,8.084,8.084h30.681 v16.598h-30.681c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681 c-4.466,0-8.084,3.618-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v24.255H162.179V244.658z M215.773,330.592c-26.804,0-49.074-19.78-52.984-45.51h187.862 c-3.91,25.73-26.18,45.51-52.984,45.51h-8.705H218.54H215.773z M261.117,458.158h-14.732v-58.566h14.732V458.158z M276.027,383.423h-6.826h-30.9h-6.826c-2.675,0-4.851-2.176-4.851-4.851v-31.812h54.254v31.812 C280.878,381.247,278.702,383.423,276.027,383.423z"></path> </g> </g> </g> </g></svg>
-                                <span>I was honored to be invited as a guest speaker for a workshop at VIT Bhopal, where I discussed the future of cybersecurity, explored career opportunities in the field, and offered placement guidance to final-year students.</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="rounded-lg shadow-xl backdrop-blur-sm p-4 bg-[#FFF5F6] flex flex-col justify-center">
-                        <img src="{{ url_for('static', filename='shah_anchor.png') }}" class="mix-blend-multiply md:h-[12rem] object-contain">
-                        <div class="pt-2">
-                            <p class="flex items-center px-2">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path></svg>
-                                <span>Jan 2022</span>
-                            </p>
-                            <p class="flex items-start md:items-center pt-3">
-                                <svg class="w-6 md:w-20 flex-none pt-1 md:pt-0" fill="#B8241A" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M253.75,128.106c-23.675,0-42.936,19.261-42.936,42.936c0,23.676,19.261,42.937,42.936,42.937 c23.676,0,42.937-19.261,42.937-42.937C296.687,147.367,277.426,128.106,253.75,128.106z M253.75,197.81 c-14.76,0-26.767-12.009-26.767-26.768c0-14.76,12.008-26.767,26.767-26.767c14.76,0,26.768,12.007,26.768,26.767 C280.519,185.801,268.51,197.81,253.75,197.81z"></path> <path d="M297.046,378.572V346.76h0.621c38.468,0,69.762-31.294,69.762-69.762V69.761C367.43,31.295,336.135,0,297.667,0h-81.894 c-38.468,0-69.762,31.295-69.762,69.761V277c0,36.676,28.455,66.811,64.445,69.539v32.035c0,11.165,8.758,20.299,19.761,20.955 v58.63h-58.726c-14.844,0-26.92,12.077-26.92,26.922S156.647,512,171.492,512h26.209c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-26.209c-5.93,0-10.752-4.824-10.752-10.753s4.824-10.753,10.752-10.753h66.81h30.9h65.7 c5.93,0,10.754,4.824,10.754,10.753s-4.825,10.753-10.754,10.753h-112.41c-4.466,0-8.084,3.619-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h112.41c14.846,0,26.923-12.077,26.923-26.922s-12.077-26.922-26.923-26.922h-57.617v-58.63 C288.288,398.871,297.046,389.737,297.046,378.572z M162.179,244.658h30.681c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.597h30.681c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084h-30.681 v-16.599h30.681c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681 c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681c4.466,0,8.084-3.619,8.084-8.084 s-3.619-8.084-8.084-8.084h-30.681V77.846h109.357c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084H162.789 c3.909-25.729,26.18-45.509,52.984-45.509h81.895c26.804,0,49.074,19.779,52.984,45.509h-54.324 c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h54.934v19.577h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.619-8.084,8.084s3.618,8.084,8.084,8.084h30.681 v16.598h-30.681c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681 c-4.466,0-8.084,3.618-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v24.255H162.179V244.658z M215.773,330.592c-26.804,0-49.074-19.78-52.984-45.51h187.862 c-3.91,25.73-26.18,45.51-52.984,45.51h-8.705H218.54H215.773z M261.117,458.158h-14.732v-58.566h14.732V458.158z M276.027,383.423h-6.826h-30.9h-6.826c-2.675,0-4.851-2.176-4.851-4.851v-31.812h54.254v31.812 C280.878,381.247,278.702,383.423,276.027,383.423z"></path> </g> </g> </g> </g></svg>
-                                <span>I was privileged to be invited as a guest speaker at Shah & Anchor Kutchhi Engineering College, where I conducted a workshop on cybersecurity and promoted cyber awareness among students.</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="rounded-lg shadow-xl backdrop-blur-sm p-4 bg-[#FFF5F6] flex flex-col justify-center">
-                        <img src="{{ url_for('static', filename='e_webinar.png') }}" class="mix-blend-multiply md:h-[12rem] object-contain">
-                        <div class="pt-2">
-                            <p class="flex items-center px-2">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path></svg>
-                                <span>Apr 2022</span>
-                            </p>
-                            <p class="flex items-start md:items-center pt-3">
-                                <svg class="w-6 md:w-20 flex-none pt-1 md:pt-0" fill="#B8241A" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M253.75,128.106c-23.675,0-42.936,19.261-42.936,42.936c0,23.676,19.261,42.937,42.936,42.937 c23.676,0,42.937-19.261,42.937-42.937C296.687,147.367,277.426,128.106,253.75,128.106z M253.75,197.81 c-14.76,0-26.767-12.009-26.767-26.768c0-14.76,12.008-26.767,26.767-26.767c14.76,0,26.768,12.007,26.768,26.767 C280.519,185.801,268.51,197.81,253.75,197.81z"></path> <path d="M297.046,378.572V346.76h0.621c38.468,0,69.762-31.294,69.762-69.762V69.761C367.43,31.295,336.135,0,297.667,0h-81.894 c-38.468,0-69.762,31.295-69.762,69.761V277c0,36.676,28.455,66.811,64.445,69.539v32.035c0,11.165,8.758,20.299,19.761,20.955 v58.63h-58.726c-14.844,0-26.92,12.077-26.92,26.922S156.647,512,171.492,512h26.209c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-26.209c-5.93,0-10.752-4.824-10.752-10.753s4.824-10.753,10.752-10.753h66.81h30.9h65.7 c5.93,0,10.754,4.824,10.754,10.753s-4.825,10.753-10.754,10.753h-112.41c-4.466,0-8.084,3.619-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h112.41c14.846,0,26.923-12.077,26.923-26.922s-12.077-26.922-26.923-26.922h-57.617v-58.63 C288.288,398.871,297.046,389.737,297.046,378.572z M162.179,244.658h30.681c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.597h30.681c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084h-30.681 v-16.599h30.681c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681 c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681c4.466,0,8.084-3.619,8.084-8.084 s-3.619-8.084-8.084-8.084h-30.681V77.846h109.357c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084H162.789 c3.909-25.729,26.18-45.509,52.984-45.509h81.895c26.804,0,49.074,19.779,52.984,45.509h-54.324 c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h54.934v19.577h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.619-8.084,8.084s3.618,8.084,8.084,8.084h30.681 v16.598h-30.681c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681 c-4.466,0-8.084,3.618-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v24.255H162.179V244.658z M215.773,330.592c-26.804,0-49.074-19.78-52.984-45.51h187.862 c-3.91,25.73-26.18,45.51-52.984,45.51h-8.705H218.54H215.773z M261.117,458.158h-14.732v-58.566h14.732V458.158z M276.027,383.423h-6.826h-30.9h-6.826c-2.675,0-4.851-2.176-4.851-4.851v-31.812h54.254v31.812 C280.878,381.247,278.702,383.423,276.027,383.423z"></path> </g> </g> </g> </g></svg>
-                                <span>I was invited as a guest speaker for the International e-Webinar organized by the Tarangan Alumni Association in collaboration with L.T. College of Nursing and S.N.D.T. Women's University.</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="rounded-lg shadow-xl backdrop-blur-sm p-4 bg-[#FFF5F6] flex flex-col justify-center">
-                        <img src="{{ url_for('static', filename='vit.png') }}" class="mix-blend-multiply md:h-[12rem] object-contain">
-                        <div class="pt-2">
-                            <p class="flex items-center px-2">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path></svg>
-                                <span>Sept 2021</span>
-                            </p>
-                            <p class="flex items-start md:items-center pt-3">
-                                <svg class="w-6 md:w-20 flex-none pt-1 md:pt-0" fill="#B8241A" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M253.75,128.106c-23.675,0-42.936,19.261-42.936,42.936c0,23.676,19.261,42.937,42.936,42.937 c23.676,0,42.937-19.261,42.937-42.937C296.687,147.367,277.426,128.106,253.75,128.106z M253.75,197.81 c-14.76,0-26.767-12.009-26.767-26.768c0-14.76,12.008-26.767,26.767-26.767c14.76,0,26.768,12.007,26.768,26.767 C280.519,185.801,268.51,197.81,253.75,197.81z"></path> <path d="M297.046,378.572V346.76h0.621c38.468,0,69.762-31.294,69.762-69.762V69.761C367.43,31.295,336.135,0,297.667,0h-81.894 c-38.468,0-69.762,31.295-69.762,69.761V277c0,36.676,28.455,66.811,64.445,69.539v32.035c0,11.165,8.758,20.299,19.761,20.955 v58.63h-58.726c-14.844,0-26.92,12.077-26.92,26.922S156.647,512,171.492,512h26.209c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-26.209c-5.93,0-10.752-4.824-10.752-10.753s4.824-10.753,10.752-10.753h66.81h30.9h65.7 c5.93,0,10.754,4.824,10.754,10.753s-4.825,10.753-10.754,10.753h-112.41c-4.466,0-8.084,3.619-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h112.41c14.846,0,26.923-12.077,26.923-26.922s-12.077-26.922-26.923-26.922h-57.617v-58.63 C288.288,398.871,297.046,389.737,297.046,378.572z M162.179,244.658h30.681c4.466,0,8.084-3.618,8.084-8.084 c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.597h30.681c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084h-30.681 v-16.599h30.681c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681 c4.466,0,8.084-3.618,8.084-8.084c0-4.466-3.619-8.084-8.084-8.084h-30.681v-16.599h30.681c4.466,0,8.084-3.619,8.084-8.084 s-3.619-8.084-8.084-8.084h-30.681V77.846h109.357c4.466,0,8.084-3.619,8.084-8.084s-3.619-8.084-8.084-8.084H162.789 c3.909-25.729,26.18-45.509,52.984-45.509h81.895c26.804,0,49.074,19.779,52.984,45.509h-54.324 c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h54.934v19.577h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.619-8.084,8.084s3.618,8.084,8.084,8.084h30.681 v16.598h-30.681c-4.466,0-8.084,3.619-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681 c-4.466,0-8.084,3.618-8.084,8.084c0,4.466,3.618,8.084,8.084,8.084h30.681v16.599h-30.681c-4.466,0-8.084,3.618-8.084,8.084 c0,4.466,3.618,8.084,8.084,8.084h30.681v24.255H162.179V244.658z M215.773,330.592c-26.804,0-49.074-19.78-52.984-45.51h187.862 c-3.91,25.73-26.18,45.51-52.984,45.51h-8.705H218.54H215.773z M261.117,458.158h-14.732v-58.566h14.732V458.158z M276.027,383.423h-6.826h-30.9h-6.826c-2.675,0-4.851-2.176-4.851-4.851v-31.812h54.254v31.812 C280.878,381.247,278.702,383.423,276.027,383.423z"></path> </g> </g> </g> </g></svg>
-                                <span>I had the privilege of being invited as a guest speaker at a workshop held at Vidyalankar Institute of Technology, where I discussed the future of cybersecurity and explored career opportunities in the field.</span>
-                            </p>
-                        </div>
+                    <div class="min-w-0">
+                        <h3 class="font-bold text-gray-900 dark:text-white">{{ talk.title }}</h3>
+                        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs text-gray-500 dark:text-gray-400">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 flex-none" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"></path></svg>
+                                {{ talk.date }}
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 flex-none" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+                                {{ talk.location }}
+                            </span>
+                        </p>
                     </div>
                 </div>
+                <span class="shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap {{ category_colors[talk.category] }}">{{ talk.category }}</span>
             </div>
+            <p class="mt-4 text-sm md:text-base text-gray-600 dark:text-gray-300">{{ talk.description }}</p>
         </div>
+        {% endfor %}
     </div>
 </div>
 
