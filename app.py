@@ -55,7 +55,7 @@ def inject_site_meta():
     return {
         'site_url': SITE_URL,
         'site_name': SITE_NAME,
-        'default_og_image': SITE_URL + url_for('static', filename='hero/hero-light.png'),
+        'default_og_image': SITE_URL + url_for('static', filename='hero/hero-light.webp'),
     }
 
 
