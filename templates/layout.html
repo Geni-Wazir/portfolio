@@ -1,57 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% set page_title = title|default(site_name) %}
+	{% set page_description = description|default('Saurabh Kumar (Geni Wazir) — cybersecurity professional, penetration tester and security researcher specializing in vulnerability research, bug bounty mediation and AI-powered security automation.') %}
+	{% set page_keywords = keywords|default('Saurabh Kumar, Geni Wazir, GeniWazir, penetration tester, pentester, ethical hacker, hacker, security researcher') %}
+	{% set page_canonical = canonical|default(site_url) %}
+	{% set page_image = og_image|default(default_og_image) %}
+
+	<title>{{ page_title }}</title>
+	<meta name="description" content="{{ page_description }}">
+	<meta name="keywords" content="{{ page_keywords }}">
+	<meta name="author" content="Saurabh Kumar (Geni Wazir)">
+	<meta name="robots" content="index, follow, max-image-preview:large">
+	<meta name="theme-color" content="#2F80ED">
+	<link rel="canonical" href="{{ page_canonical }}">
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="{{ site_name }}">
+	<meta property="og:title" content="{{ page_title }}">
+	<meta property="og:description" content="{{ page_description }}">
+	<meta property="og:url" content="{{ page_canonical }}">
+	<meta property="og:image" content="{{ page_image }}">
+	<meta property="og:locale" content="en_US">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ page_title }}">
+	<meta name="twitter:description" content="{{ page_description }}">
+	<meta name="twitter:image" content="{{ page_image }}">
+
+	<!-- Structured data: helps search engines and AI assistants understand who this site is about -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Saurabh Kumar",
+		"alternateName": ["Geni Wazir", "GeniWazir", "Geni_Wazir"],
+		"url": "{{ site_url }}",
+		"image": "{{ page_image }}",
+		"jobTitle": "Mediation Specialist III / Penetration Tester",
+		"description": "Cybersecurity professional, penetration tester and security researcher specializing in vulnerability research, bug bounty mediation and AI-powered security automation.",
+		"sameAs": [
+			"https://www.linkedin.com/in/saurabh-kumar-5780b4203/",
+			"https://github.com/Geni-Wazir",
+			"https://topmate.io/saurabh_kumar0",
+			"https://medium.com/@geniwazir"
+		],
+		"knowsAbout": [
+			"Penetration Testing",
+			"Ethical Hacking",
+			"Bug Bounty Hunting",
+			"Vulnerability Research",
+			"Application Security",
+			"Cloud Security",
+			"Network Security",
+			"AI Automation",
+			"Security Mediation"
+		],
+		"worksFor": {
+			"@type": "Organization",
+			"name": "HackerOne"
+		}
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "{{ site_name }}",
+		"url": "{{ site_url }}"
+	}
+	</script>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32.png') }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16.png') }}">
+	<link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='favicon/favicon-192.png') }}">
+	<link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='favicon/favicon-512.png') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
 	<!-- CSS only -->
 	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			darkMode: 'class',
+		}
+	</script>
 	<link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-	{% if title %}
-	<title>{{ title }}</title>
-	{% else %}
-	<title>Portfolio</title>
-	{% endif %}
-
 </head>
 
-<body class="bg-[#B8241A] md:pt-20">
-	<nav class="bg-white/20 backdrop-blur-sm text-white fixed md:top-0 bottom-0 md:bottom-auto w-full z-50">
+<body class="bg-[#F7FAFF] dark:bg-[#0B1220] md:pt-20">
+	<nav class="bg-white/70 dark:bg-[#0B1220]/70 backdrop-blur-sm text-gray-900 dark:text-white border-b border-gray-200/60 dark:border-white/10 fixed md:top-0 bottom-0 md:bottom-auto w-full z-50">
 		<div class="max-w-screen-xl flex items-center justify-between mx-auto px-4 py-2">
 			<a href="{{ url_for('home') }}" class="flex items-center flex">
-				<img src="{{ url_for('static', filename='logo.png') }}" class="h-10 md:h-14 object-contain" alt="Logo" />
+				<img src="{{ url_for('static', filename='logo/logo-light.png') }}" class="dark:hidden h-10 md:h-14 w-[201px] md:w-[282px] object-contain object-left" alt="Logo" />
+				<img src="{{ url_for('static', filename='logo/logo-dark.png') }}" class="hidden dark:block h-10 md:h-14 w-[201px] md:w-[282px] object-contain object-left" alt="Logo" />
 			</a>
 			<!-- Centered Navigation -->
-			<ul class="flex flex-wrap justify-center space-x-6 md:space-x-8 font-medium w-full md:w-auto mt-2 md:mt-0 text-gray-700 md:text-gray-700">
+			<ul class="flex flex-wrap justify-center space-x-3 sm:space-x-6 md:space-x-8 font-medium w-full md:w-auto mt-2 md:mt-0 text-gray-700 dark:text-gray-300 md:text-gray-700">
 				<li>
 					{% if 'Experience' in title %}
-					<a href="{{ url_for('experience') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
+					<a href="{{ url_for('experience') }}" class="flex text-[#2F80ED] text-center py-1 border-b-2 border-[#2F80ED]" aria-current="page">
 					{% else %}
-					<a href="{{ url_for('experience') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
+					<a href="{{ url_for('experience') }}" class="flex hover:text-black dark:hover:text-white py-1 text-center border-b-2 border-white/0 hover:border-black dark:hover:border-white">
 					{% endif %}
-						<svg class="w-7 md:w-5 md:mr-1" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+						<svg class="w-6 md:w-5 md:mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 							<g id="SVGRepo_iconCarrier">
-								<style type="text/css">
-									.st0 {
-										fill: currentColor;
-									}
-								</style>
-								<g>
-									<path class="st0"
-										d="M470.537,137.504H41.471C18.565,137.504,0,156.077,0,178.976v56.797l211.507,44.607V252.1h87.772v28.28 L512,235.489v-56.513C512,156.077,493.435,137.504,470.537,137.504z">
-									</path>
-									<path class="st0"
-										d="M299.279,369.129h-87.772v-57.017L14.633,273.012V439.81c0,22.898,18.557,41.47,41.455,41.47h399.824 c22.898,0,41.463-18.572,41.463-41.47V272.721l-198.096,39.39V369.129z">
-									</path>
-									<rect x="233.452" y="274.044" class="st0" width="43.882" height="73.132"></rect>
-									<path class="st0"
-										d="M193.786,72.206c0.008-1.703,0.638-3.057,1.75-4.208c1.127-1.103,2.49-1.718,4.176-1.734h112.577 c1.686,0.016,3.058,0.631,4.185,1.734c1.103,1.151,1.726,2.505,1.733,4.208v29.627h35.546V72.206 c0.008-11.41-4.665-21.875-12.143-29.329c-7.446-7.485-17.934-12.166-29.321-12.158H199.712 c-11.394-0.008-21.875,4.673-29.32,12.158c-7.47,7.454-12.158,17.918-12.135,29.329v29.627h35.529V72.206z">
-									</path>
-								</g>
+								<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 7H5C3.89543 7 3 7.89543 3 9V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7H15M9 7V5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7M9 7H15" />
 							</g>
 						</svg>
 						<span class="hidden md:block">Experience</span>
@@ -59,11 +121,11 @@
 				</li>
 				<li>
 					{% if 'Achievements' in title %}
-					<a href="{{ url_for('achievements') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
+					<a href="{{ url_for('achievements') }}" class="flex text-[#2F80ED] text-center py-1 border-b-2 border-[#2F80ED]" aria-current="page">
 					{% else %}
-					<a href="{{ url_for('achievements') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
+					<a href="{{ url_for('achievements') }}" class="flex hover:text-black dark:hover:text-white py-1 text-center border-b-2 border-white/0 hover:border-black dark:hover:border-white">
 					{% endif %}
-						<svg class="w-7 md:w-5 md:mr-1" viewBox="0 0 24 24" id="_24x24_On_Light_Achievements"
+						<svg class="w-6 md:w-5 md:mr-1" viewBox="0 0 24 24" id="_24x24_On_Light_Achievements"
 							data-name="24x24/On Light/Achievements" xmlns="http://www.w3.org/2000/svg">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -79,11 +141,11 @@
 				</li>
 				<li>
 					{% if 'Projects' in title %}
-					<a href="{{ url_for('projects') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
+					<a href="{{ url_for('projects') }}" class="flex text-[#2F80ED] text-center py-1 border-b-2 border-[#2F80ED]" aria-current="page">
 					{% else %}
-					<a href="{{ url_for('projects') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
+					<a href="{{ url_for('projects') }}" class="flex hover:text-black dark:hover:text-white py-1 text-center border-b-2 border-white/0 hover:border-black dark:hover:border-white">
 					{% endif %}
-						<svg class="w-7 md:w-5 md:mr-1" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+						<svg class="w-6 md:w-5 md:mr-1" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -104,11 +166,11 @@
 				</li>
 				<li>
 					{% if 'Blogs' in title %}
-					<a href="{{ url_for('blogs') }}" class="flex text-black text-center py-1 border-b-2 border-black" aria-current="page">
+					<a href="{{ url_for('blogs') }}" class="flex text-[#2F80ED] text-center py-1 border-b-2 border-[#2F80ED]" aria-current="page">
 					{% else %}
-					<a href="{{ url_for('blogs') }}" class="flex hover:text-black py-1 text-center border-b-2 border-white/0 hover:border-black">
+					<a href="{{ url_for('blogs') }}" class="flex hover:text-black dark:hover:text-white py-1 text-center border-b-2 border-white/0 hover:border-black dark:hover:border-white">
 					{% endif %}
-						<svg class="w-7 md:w-5 md:mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<svg class="w-6 md:w-5 md:mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
 							<g id="SVGRepo_iconCarrier">
@@ -120,28 +182,33 @@
 						<span class="hidden md:block">Blogs</span>
 					</a>
 				</li>
+				<li>
+					{% if 'Resume' in title %}
+					<a href="{{ url_for('resume') }}" class="flex text-[#2F80ED] text-center py-1 border-b-2 border-[#2F80ED]" aria-current="page">
+					{% else %}
+					<a href="{{ url_for('resume') }}" class="flex hover:text-black dark:hover:text-white py-1 text-center border-b-2 border-white/0 hover:border-black dark:hover:border-white">
+					{% endif %}
+						<svg class="w-6 md:w-5 md:mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9l-6-6Z" />
+							<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 3v6h6" />
+						</svg>
+						<span class="hidden md:block">Resume</span>
+					</a>
+				</li>
 			</ul>
 
-			<div class="hidden md:flex justify-end gap-2">
-				<a type="button" href="https://discord.com/channels/@me/612694716969910272" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-discord" data-tooltip-placement="bottom">
-					<svg class="w-6" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
-						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-						<g id="SVGRepo_iconCarrier">
-							<g>
-								<path
-									d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
-									fill="currentColor" fill-rule="nonzero"> </path>
-							</g>
-						</g>
+			<div class="flex items-center gap-2">
+				<div class="hidden md:flex justify-end gap-2">
+				<a type="button" href="https://topmate.io/saurabh_kumar0" target="_blank" class="bg-white p-1 rounded-md text-[#2F80ED] border border-gray-200 shadow-sm dark:border-transparent dark:shadow-none" data-tooltip-target="tooltip-topmate" data-tooltip-placement="bottom">
+					<svg class="w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
 					</svg>
 				</a>
-				<div id="tooltip-discord" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
-					Connect over Discord
+				<div id="tooltip-topmate" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
+					Book a call on Topmate
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
-				<a type="button" href="https://www.linkedin.com/in/saurabh-kumar-5780b4203/" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-linkedin" data-tooltip-placement="bottom">
+				<a type="button" href="https://www.linkedin.com/in/saurabh-kumar-5780b4203/" target="_blank" class="bg-white p-1 rounded-md text-[#2F80ED] border border-gray-200 shadow-sm dark:border-transparent dark:shadow-none" data-tooltip-target="tooltip-linkedin" data-tooltip-placement="bottom">
 					<svg class="w-6" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
 						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -156,7 +223,7 @@
 					Connect over Linkedin
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
-				<a type="button" href="https://github.com/Geni-Wazir" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-github" data-tooltip-placement="bottom">
+				<a type="button" href="https://github.com/Geni-Wazir" target="_blank" class="bg-white p-1 rounded-md text-[#2F80ED] border border-gray-200 shadow-sm dark:border-transparent dark:shadow-none" data-tooltip-target="tooltip-github" data-tooltip-placement="bottom">
 					<svg class="w-6" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
 						xmlns:xlink="http://www.w3.org/1999/xlink">
 						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -169,7 +236,7 @@
 									<g id="icons" transform="translate(56.000000, 160.000000)">
 										<path
 											d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
-											id="github-[#B8241A]"> </path>
+											id="github-[#2F80ED]"> </path>
 									</g>
 								</g>
 							</g>
@@ -180,6 +247,29 @@
 					Explore my GitHub
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
+				</div>
+				<button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="bg-white p-1.5 rounded-md text-[#2F80ED] border border-gray-200 shadow-sm dark:border-transparent dark:shadow-none">
+					<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M14.5739 1.11056L13.7826 2.69316C13.7632 2.73186 13.7319 2.76325 13.6932 2.7826L12.1106 3.5739C11.9631 3.64761 11.9631 3.85797 12.1106 3.93167L13.6932 4.72297C13.7319 4.74233 13.7632 4.77371 13.7826 4.81241L14.5739 6.39502C14.6476 6.54243 14.858 6.54243 14.9317 6.39502L15.723 4.81241C15.7423 4.77371 15.7737 4.74232 15.8124 4.72297L17.395 3.93167C17.5424 3.85797 17.5424 3.64761 17.395 3.5739L15.8124 2.7826C15.7737 2.76325 15.7423 2.73186 15.723 2.69316L14.9317 1.11056C14.858 0.963147 14.6476 0.963148 14.5739 1.11056Z" fill="currentColor"></path>
+						<path d="M19.2419 5.07223L18.4633 7.40815C18.4434 7.46787 18.3965 7.51474 18.3368 7.53464L16.0009 8.31328C15.8185 8.37406 15.8185 8.63198 16.0009 8.69276L18.3368 9.4714C18.3965 9.4913 18.4434 9.53817 18.4633 9.59789L19.2419 11.9338C19.3027 12.1161 19.5606 12.1161 19.6214 11.9338L20.4 9.59789C20.42 9.53817 20.4668 9.4913 20.5265 9.4714L22.8625 8.69276C23.0448 8.63198 23.0448 8.37406 22.8625 8.31328L20.5265 7.53464C20.4668 7.51474 20.42 7.46787 20.4 7.40815L19.6214 5.07223C19.5606 4.88989 19.3027 4.88989 19.2419 5.07223Z" fill="currentColor"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4075 13.6642C13.2348 16.4915 17.6517 16.7363 20.6641 14.3703C20.7014 14.341 20.7385 14.3113 20.7754 14.2812C20.9148 14.1674 21.051 14.0479 21.1837 13.9226C21.2376 13.8718 21.2909 13.8201 21.3436 13.7674C21.8557 13.2552 22.9064 13.5578 22.7517 14.2653C22.6983 14.5098 22.6365 14.7517 22.5667 14.9905C22.5253 15.1321 22.4811 15.2727 22.4341 15.4122C22.4213 15.4502 22.4082 15.4883 22.395 15.5262C20.8977 19.8142 16.7886 23.0003 12 23.0003C5.92487 23.0003 1 18.0754 1 12.0003C1 7.13315 4.29086 2.98258 8.66889 1.54252L8.72248 1.52504C8.8185 1.49401 8.91503 1.46428 9.01205 1.43587C9.26959 1.36046 9.5306 1.29438 9.79466 1.23801C10.5379 1.07934 10.8418 2.19074 10.3043 2.72815C10.251 2.78147 10.1987 2.83539 10.1473 2.88989C10.0456 2.99777 9.94766 3.10794 9.8535 3.22023C9.83286 3.24485 9.8124 3.26957 9.79212 3.29439C7.32966 6.30844 7.54457 10.8012 10.4075 13.6642ZM8.99331 15.0784C11.7248 17.8099 15.6724 18.6299 19.0872 17.4693C17.4281 19.6024 14.85 21.0003 12 21.0003C7.02944 21.0003 3 16.9709 3 12.0003C3 9.09163 4.45653 6.47161 6.66058 4.81846C5.41569 8.27071 6.2174 12.3025 8.99331 15.0784Z" fill="currentColor"></path>
+					</svg>
+					<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" viewBox="0 0 475.465 475.465" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+						<g>
+							<g>
+								<path d="M320.535,320.229c10.701-10.701,19.107-23.173,24.986-37.071c6.095-14.411,9.186-29.694,9.186-45.426 c0-15.732-3.091-31.015-9.186-45.426c-5.879-13.898-14.285-26.371-24.986-37.071c-10.7-10.701-23.173-19.107-37.071-24.986 c-14.411-6.095-29.694-9.186-45.426-9.186c-15.73,0-31.014,3.091-45.425,9.186c-13.898,5.878-26.371,14.285-37.071,24.986 c-10.701,10.701-19.107,23.173-24.985,37.071c-6.096,14.411-9.186,29.695-9.186,45.426c0,15.731,3.09,31.015,9.186,45.426 c5.878,13.898,14.285,26.37,24.985,37.071s23.173,19.107,37.071,24.985c14.412,6.096,29.695,9.187,45.425,9.187 c15.732,0,31.015-3.091,45.426-9.187C297.362,339.337,309.835,330.931,320.535,320.229z M238.038,163.903 c40.776,0,73.83,33.054,73.83,73.829c0,40.774-33.054,73.829-73.83,73.829c-40.774,0-73.828-33.055-73.828-73.829 C164.209,196.958,197.264,163.903,238.038,163.903z"></path>
+								<path d="M238.705,377.589c-11.798,0-21.381,9.546-21.419,21.354l-0.17,54.535c-0.038,11.83,9.523,21.449,21.353,21.486 c0.023,0,0.045,0,0.068,0c11.799,0,21.382-9.546,21.419-21.354l0.171-54.535c0.037-11.83-9.523-21.45-21.354-21.486 C238.75,377.589,238.727,377.589,238.705,377.589z"></path>
+								<path d="M237.366,97.876c0.058,0,0.118,0,0.177,0c11.83-0.096,21.341-9.763,21.247-21.593l-0.441-54.535 c-0.096-11.83-9.75-21.33-21.593-21.246c-11.83,0.096-21.342,9.763-21.246,21.592l0.441,54.536 C216.046,88.401,225.616,97.876,237.366,97.876z"></path>
+								<path d="M21.919,217.116c-11.798,0-21.381,9.546-21.419,21.353c-0.037,11.831,9.523,21.45,21.354,21.487l54.535,0.171 c0.023,0,0.045,0,0.068,0c11.798,0,21.382-9.547,21.419-21.354c0.038-11.83-9.523-21.45-21.353-21.487l-54.536-0.171 C21.964,217.116,21.942,217.116,21.919,217.116z"></path>
+								<path d="M474.964,236.755c-0.096-11.771-9.666-21.247-21.416-21.247c-0.059,0-0.118,0-0.177,0.001l-54.535,0.441 c-11.83,0.095-21.342,9.763-21.247,21.592c0.096,11.771,9.666,21.247,21.416,21.247c0.059,0,0.118,0,0.177,0l54.535-0.441 C465.547,258.253,475.059,248.586,474.964,236.755z"></path>
+								<path d="M85.698,412.322c5.459,0,10.92-2.074,15.098-6.227l38.684-38.441c8.391-8.339,8.434-21.901,0.095-30.292 c-8.338-8.393-21.901-8.435-30.292-0.096l-38.684,38.442c-8.391,8.338-8.434,21.9-0.095,30.292 C74.691,410.214,80.194,412.322,85.698,412.322z"></path>
+								<path d="M366.784,138.46l38.25-38.875c8.297-8.433,8.188-21.994-0.244-30.292c-8.434-8.297-21.994-8.187-30.292,0.245 l-38.251,38.875c-8.297,8.433-8.187,21.994,0.245,30.292c4.172,4.105,9.598,6.152,15.022,6.152 C357.054,144.857,362.592,142.72,366.784,138.46z"></path>
+								<path d="M123.004,145.802c5.459,0,10.92-2.074,15.098-6.227c8.391-8.338,8.434-21.901,0.095-30.292L99.755,70.6 c-8.338-8.392-21.901-8.434-30.292-0.095c-8.391,8.338-8.434,21.901-0.095,30.292l38.441,38.683 C111.997,143.693,117.5,145.802,123.004,145.802z"></path>
+								<path d="M375.879,405.034c4.172,4.105,9.598,6.152,15.022,6.152c5.539,0,11.077-2.137,15.269-6.396 c8.297-8.434,8.188-21.994-0.244-30.292l-38.875-38.25c-8.433-8.298-21.993-8.187-30.291,0.245 c-8.297,8.433-8.188,21.994,0.245,30.291L375.879,405.034z"></path>
+							</g>
+						</g>
+					</svg>
+				</button>
 			</div>
 		</div>
 	</nav>
@@ -187,90 +277,6 @@
 		{% block content %}
 		{% endblock %}
 	</div>
-	<div class="w-full bg-white -mt-[1px]">
-		<div class="w-3/5 md:w-2/4 lg:w-2/5 h-12 md:h-16 bg-black slant-right"></div>
-	</div>
-	<footer class="bg-black pb-16 md:pb-0 text-white">
-		<h2 class="-translate-y-8 md:-translate-y-10 font-extrabold text-2xl md:text-6xl pl-5 md:pl-8 lg:pl-20">Contact <span class="text-[#B8241A]">Me</span></h2>
-		<div class="max-w-5xl flex justify-center mx-auto -mt-3 flex-wrap">
-			<h4 class="text-base md:text-xl w-full text-center">Let’s bridge the gap, spark ideas, and create something incredible together. Let’s connect!</h4>
-			<div class="py-8 w-full flex justify-center gap-4">
-				<a type="button" href="https://discord.com/channels/@me/612694716969910272" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-discord-footer" data-tooltip-placement="top">
-					<svg class="w-9" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
-						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-						<g id="SVGRepo_iconCarrier">
-							<g>
-								<path
-									d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
-									fill="currentColor" fill-rule="nonzero"> </path>
-							</g>
-						</g>
-					</svg>
-				</a>
-				<div id="tooltip-discord-footer" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-black bg-white rounded-lg shadow-sm opacity-0 tooltip">
-					Connect over Discord
-					<div class="tooltip-arrow" data-popper-arrow></div>
-				</div>
-				<a type="button" href="https://www.linkedin.com/in/saurabh-kumar-5780b4203/" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-linkedin-footer" data-tooltip-placement="top">
-					<svg class="w-9" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
-						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-						<g id="SVGRepo_iconCarrier">
-							<path fill="currentColor"
-								d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z">
-							</path>
-						</g>
-					</svg>
-				</a>
-				<div id="tooltip-linkedin-footer" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-black bg-white rounded-lg shadow-sm opacity-0 tooltip">
-					Connect over Linkedin
-					<div class="tooltip-arrow" data-popper-arrow></div>
-				</div>
-				<a type="button" href="https://github.com/Geni-Wazir" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-github-footer" data-tooltip-placement="top">
-					<svg class="w-9" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink">
-						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-						<g id="SVGRepo_iconCarrier">
-							<defs> </defs>
-							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								<g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)"
-									fill="currentColor">
-									<g id="icons" transform="translate(56.000000, 160.000000)">
-										<path
-											d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
-											id="github-[#B8241A]"> </path>
-									</g>
-								</g>
-							</g>
-						</g>
-					</svg>
-				</a>
-				<div id="tooltip-github-footer" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-black bg-white rounded-lg shadow-sm opacity-0 tooltip">
-					Explore my GitHub
-					<div class="tooltip-arrow" data-popper-arrow></div>
-				</div>
-				<a type="button" href="mailto:saurabh.kumar.off@gmail.com" target="_blank" class="bg-white p-1 rounded-md text-[#B8241A]" data-tooltip-target="tooltip-email-footer" data-tooltip-placement="top">
-					<svg class="w-9" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-						<g id="SVGRepo_iconCarrier">
-							<path
-								d="M16 17H21M18.5 14.5V19.5M12 19H6.2C5.0799 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2C3 7.0799 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H17.8C18.9201 5 19.4802 5 19.908 5.21799C20.2843 5.40973 20.5903 5.71569 20.782 6.09202C21 6.51984 21 7.0799 21 8.2V11M20.6067 8.26229L15.5499 11.6335C14.2669 12.4888 13.6254 12.9165 12.932 13.0827C12.3192 13.2295 11.6804 13.2295 11.0677 13.0827C10.3743 12.9165 9.73279 12.4888 8.44975 11.6335L3.14746 8.09863"
-								stroke="#B8241A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-						</g>
-					</svg>
-				</a>
-				<div id="tooltip-email-footer" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-black bg-white rounded-lg shadow-sm opacity-0 tooltip">
-					Drop me an email!
-					<div class="tooltip-arrow" data-popper-arrow></div>
-				</div>
-			</div>
-		</div>
-		<span class="pl-5 md:pl-8 lg:pl-20 py-1 md:py-0 text-xs ">Copyright © <span id="current-year"></span>, Inc. All Rights Reserved.</span>
-	</footer>
 	<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 	<script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>

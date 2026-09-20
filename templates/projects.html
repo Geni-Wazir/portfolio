@@ -1,204 +1,157 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="text-black">
-    <div class="w-3/5 md:w-2/4 lg:w-2/5 h-12 md:h-16 bg-white slant-right mt-2 md:mt-0"></div>
-    <div class="bg-white">
-        <h1 class="-translate-y-8 md:-translate-y-10 font-extrabold text-2xl md:text-5xl lg:text-6xl pl-5 md:pl-12 lg:pl-20 text-black">Proj<span class="text-[#B8241A]">ects</span></h1>
-        <div class="max-w-5xl flex justify-center mx-auto pt-5 pb-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-10">
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm pt-4">
-                    <h3 class="font-extrabold text-xl md:text-2xl p-2 px-5 md:px-0">Vulnerability Scanner <span class="text-[#B8241A]">Chowkidar</span></h3>
-                    <div class="w-full px-4 py-2 text-xs md:text-sm">
-                        <p class="flex items-center">
-                            <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.83824 18.4467C10.0103 18.7692 10.1826 19.0598 10.3473 19.3173C8.59745 18.9238 7.07906 17.9187 6.02838 16.5383C6.72181 16.1478 7.60995 15.743 8.67766 15.4468C8.98112 16.637 9.40924 17.6423 9.83824 18.4467ZM11.1618 17.7408C10.7891 17.0421 10.4156 16.1695 10.1465 15.1356C10.7258 15.0496 11.3442 15 12.0001 15C12.6559 15 13.2743 15.0496 13.8535 15.1355C13.5844 16.1695 13.2109 17.0421 12.8382 17.7408C12.5394 18.3011 12.2417 18.7484 12 19.0757C11.7583 18.7484 11.4606 18.3011 11.1618 17.7408ZM9.75 12C9.75 12.5841 9.7893 13.1385 9.8586 13.6619C10.5269 13.5594 11.2414 13.5 12.0001 13.5C12.7587 13.5 13.4732 13.5593 14.1414 13.6619C14.2107 13.1384 14.25 12.5841 14.25 12C14.25 11.4159 14.2107 10.8616 14.1414 10.3381C13.4732 10.4406 12.7587 10.5 12.0001 10.5C11.2414 10.5 10.5269 10.4406 9.8586 10.3381C9.7893 10.8615 9.75 11.4159 9.75 12ZM8.38688 10.0288C8.29977 10.6478 8.25 11.3054 8.25 12C8.25 12.6946 8.29977 13.3522 8.38688 13.9712C7.11338 14.3131 6.05882 14.7952 5.24324 15.2591C4.76698 14.2736 4.5 13.168 4.5 12C4.5 10.832 4.76698 9.72644 5.24323 8.74088C6.05872 9.20472 7.1133 9.68686 8.38688 10.0288ZM10.1465 8.86445C10.7258 8.95042 11.3442 9 12.0001 9C12.6559 9 13.2743 8.95043 13.8535 8.86447C13.5844 7.83055 13.2109 6.95793 12.8382 6.2592C12.5394 5.69894 12.2417 5.25156 12 4.92432C11.7583 5.25156 11.4606 5.69894 11.1618 6.25918C10.7891 6.95791 10.4156 7.83053 10.1465 8.86445ZM15.6131 10.0289C15.7002 10.6479 15.75 11.3055 15.75 12C15.75 12.6946 15.7002 13.3521 15.6131 13.9711C16.8866 14.3131 17.9412 14.7952 18.7568 15.2591C19.233 14.2735 19.5 13.1679 19.5 12C19.5 10.8321 19.233 9.72647 18.7568 8.74093C17.9413 9.20477 16.8867 9.6869 15.6131 10.0289ZM17.9716 7.46178C17.2781 7.85231 16.39 8.25705 15.3224 8.55328C15.0189 7.36304 14.5908 6.35769 14.1618 5.55332C13.9897 5.23077 13.8174 4.94025 13.6527 4.6827C15.4026 5.07623 16.921 6.08136 17.9716 7.46178ZM8.67765 8.55325C7.61001 8.25701 6.7219 7.85227 6.02839 7.46173C7.07906 6.08134 8.59745 5.07623 10.3472 4.6827C10.1826 4.94025 10.0103 5.23076 9.83823 5.5533C9.40924 6.35767 8.98112 7.36301 8.67765 8.55325ZM15.3224 15.4467C15.0189 16.637 14.5908 17.6423 14.1618 18.4467C13.9897 18.7692 13.8174 19.0598 13.6527 19.3173C15.4026 18.9238 16.921 17.9186 17.9717 16.5382C17.2782 16.1477 16.3901 15.743 15.3224 15.4467ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" fill="#080341"></path> </g></svg>
-                            <a href="https://chowkidar.xyz" target="_blank" class="font-medium">Chowkidar <span class="font-normal text-xs">[https://chowkidar.xyz]</span></a>
-                        </p>
-                        <div class="flex pt-2">
-                            <div class="flex items-start">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 3H11.5118C12.2455 3 12.6124 3 12.9577 3.08289C13.2638 3.15638 13.5564 3.27759 13.8249 3.44208C14.1276 3.6276 14.387 3.88703 14.9059 4.40589L20.5 10M7.5498 10.0498H7.5598M9.51178 6H8.3C6.61984 6 5.77976 6 5.13803 6.32698C4.57354 6.6146 4.1146 7.07354 3.82698 7.63803C3.5 8.27976 3.5 9.11984 3.5 10.8V12.0118C3.5 12.7455 3.5 13.1124 3.58289 13.4577C3.65638 13.7638 3.77759 14.0564 3.94208 14.3249C4.1276 14.6276 4.38703 14.887 4.90589 15.4059L8.10589 18.6059C9.29394 19.7939 9.88796 20.388 10.5729 20.6105C11.1755 20.8063 11.8245 20.8063 12.4271 20.6105C13.112 20.388 13.7061 19.7939 14.8941 18.6059L16.1059 17.3941C17.2939 16.2061 17.888 15.612 18.1105 14.9271C18.3063 14.3245 18.3063 13.6755 18.1105 13.0729C17.888 12.388 17.2939 11.7939 16.1059 10.6059L12.9059 7.40589C12.387 6.88703 12.1276 6.6276 11.8249 6.44208C11.5564 6.27759 11.2638 6.15638 10.9577 6.08289C10.6124 6 10.2455 6 9.51178 6ZM8.0498 10.0498C8.0498 10.3259 7.82595 10.5498 7.5498 10.5498C7.27366 10.5498 7.0498 10.3259 7.0498 10.0498C7.0498 9.77366 7.27366 9.5498 7.5498 9.5498C7.82595 9.5498 8.0498 9.77366 8.0498 10.0498Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                            </div>
-                            <div class="flex gap-1 flex-wrap">
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-violet-300 bg-violet-200 text-violet-800">Frontend</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-pink-300 bg-pink-200 text-pink-800">Backend</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-sky-300 bg-sky-200 text-sky-800">Docker</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-green-300 bg-green-200 text-green-800">Script</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-rose-300 bg-rose-200 text-rose-800">Automation</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-amber-300 bg-amber-200 text-amber-800">SQL</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-orange-300 bg-orange-300/80 text-orange-900">AWS</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-blue-300 bg-blue-200 text-blue-800">Scheduler</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-orange-300 bg-orange-200 text-orange-800">Redis</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-gray-300 bg-gray-200 text-gray-800">Flask</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-teal-300 bg-teal-200 text-teal-800">Reporting</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full p-2 px-5 text-sm md:text-base">
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span><strong>Chowkidar</strong> is a standalone platform designed for security researchers to efficiently scan their web applications and AWS environments. It simplifies vulnerability detection through an intuitive interface, allowing users to initiate, monitor, and stop scans with ease.</span>
-                        </p>
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>The scanner incorporates over 300 rules to detect security misconfigurations and vulnerabilities. It generates a comprehensive PDF report and provides updates via email notifications.</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm pt-4">
-                    <h3 class="font-extrabold text-xl md:text-2xl p-2 px-5 md:px-0">Jack - <span class="text-[#B8241A]">AI Chatbot Plugin</span></h3>
-                    <div class="w-full px-4 py-2 text-xs md:text-sm">
-                        <p class="flex items-center">
-                            <svg class="w-6 md:w-8 pr-2 md:pr-3 flex-none" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
-                            <a href="https://github.com/Vishvam10/Jack-Chatbot-Plugin" target="_blank" class="font-medium">Jack-Chatbot-Plugin</a>
-                        </p>
-                        <div class="flex pt-2">
-                            <div class="flex items-start">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 3H11.5118C12.2455 3 12.6124 3 12.9577 3.08289C13.2638 3.15638 13.5564 3.27759 13.8249 3.44208C14.1276 3.6276 14.387 3.88703 14.9059 4.40589L20.5 10M7.5498 10.0498H7.5598M9.51178 6H8.3C6.61984 6 5.77976 6 5.13803 6.32698C4.57354 6.6146 4.1146 7.07354 3.82698 7.63803C3.5 8.27976 3.5 9.11984 3.5 10.8V12.0118C3.5 12.7455 3.5 13.1124 3.58289 13.4577C3.65638 13.7638 3.77759 14.0564 3.94208 14.3249C4.1276 14.6276 4.38703 14.887 4.90589 15.4059L8.10589 18.6059C9.29394 19.7939 9.88796 20.388 10.5729 20.6105C11.1755 20.8063 11.8245 20.8063 12.4271 20.6105C13.112 20.388 13.7061 19.7939 14.8941 18.6059L16.1059 17.3941C17.2939 16.2061 17.888 15.612 18.1105 14.9271C18.3063 14.3245 18.3063 13.6755 18.1105 13.0729C17.888 12.388 17.2939 11.7939 16.1059 10.6059L12.9059 7.40589C12.387 6.88703 12.1276 6.6276 11.8249 6.44208C11.5564 6.27759 11.2638 6.15638 10.9577 6.08289C10.6124 6 10.2455 6 9.51178 6ZM8.0498 10.0498C8.0498 10.3259 7.82595 10.5498 7.5498 10.5498C7.27366 10.5498 7.0498 10.3259 7.0498 10.0498C7.0498 9.77366 7.27366 9.5498 7.5498 9.5498C7.82595 9.5498 8.0498 9.77366 8.0498 10.0498Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                            </div>
-                            <div class="flex gap-1 flex-wrap">
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-violet-300 bg-violet-200 text-violet-800">Frontend</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-pink-300 bg-pink-200 text-pink-800">Backend</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-purple-300 bg-purple-200 text-purple-800">Extension</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-green-300 bg-green-200 text-green-800">Mongodb</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-rose-300 bg-rose-200 text-rose-800">Chat GPT</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-fuchsia-300 bg-fuchsia-200 text-fuchsia-800">AI</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-emerald-300 bg-emerald-200 text-emerald-800">Chatbot</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-lime-300 bg-lime-200 text-lime-800">Plugin</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full p-2 px-5 text-sm md:text-base">
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>This is a chrome extension that provides a powerful AI chatbot to talk to. It leverages the OpenAI's Chat API ( gpt3.5-turbo ) and answers questions related to the site that you are currently at.</span>
-                        </p>
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>The extension retains a history of interactions and leverages this information to deliver responses that are relevant and aligned with the established context. This ensures more accurate and tailored communication.</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm pt-4">
-                    <h3 class="font-extrabold text-xl md:text-2xl p-2 px-5 md:px-0">Setup Kubernetes <span class="text-[#B8241A]">via Ansible</span></h3>
-                    <div class="w-full px-4 py-2 text-xs md:text-sm">
-                        <p class="flex items-center">
-                            <svg class="w-6 md:w-8 pr-2 md:pr-3 flex-none" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
-                            <a href="https://github.com/Geni-Wazir/Set-Ansible" target="_blank" class="font-medium">Set-Ansible</a>
-                        </p>
-                        <div class="flex pt-2">
-                            <div class="flex items-start">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 3H11.5118C12.2455 3 12.6124 3 12.9577 3.08289C13.2638 3.15638 13.5564 3.27759 13.8249 3.44208C14.1276 3.6276 14.387 3.88703 14.9059 4.40589L20.5 10M7.5498 10.0498H7.5598M9.51178 6H8.3C6.61984 6 5.77976 6 5.13803 6.32698C4.57354 6.6146 4.1146 7.07354 3.82698 7.63803C3.5 8.27976 3.5 9.11984 3.5 10.8V12.0118C3.5 12.7455 3.5 13.1124 3.58289 13.4577C3.65638 13.7638 3.77759 14.0564 3.94208 14.3249C4.1276 14.6276 4.38703 14.887 4.90589 15.4059L8.10589 18.6059C9.29394 19.7939 9.88796 20.388 10.5729 20.6105C11.1755 20.8063 11.8245 20.8063 12.4271 20.6105C13.112 20.388 13.7061 19.7939 14.8941 18.6059L16.1059 17.3941C17.2939 16.2061 17.888 15.612 18.1105 14.9271C18.3063 14.3245 18.3063 13.6755 18.1105 13.0729C17.888 12.388 17.2939 11.7939 16.1059 10.6059L12.9059 7.40589C12.387 6.88703 12.1276 6.6276 11.8249 6.44208C11.5564 6.27759 11.2638 6.15638 10.9577 6.08289C10.6124 6 10.2455 6 9.51178 6ZM8.0498 10.0498C8.0498 10.3259 7.82595 10.5498 7.5498 10.5498C7.27366 10.5498 7.0498 10.3259 7.0498 10.0498C7.0498 9.77366 7.27366 9.5498 7.5498 9.5498C7.82595 9.5498 8.0498 9.77366 8.0498 10.0498Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                            </div>
-                            <div class="flex gap-1 flex-wrap">
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-violet-300 bg-violet-200 text-violet-800">Kubernetes</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-orange-300 bg-orange-300/80 text-orange-900">AWS</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-sky-300 bg-sky-200 text-sky-800">Docker</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-green-300 bg-green-200 text-green-800">Script</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-rose-300 bg-rose-200 text-rose-800">Automation</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-cyan-300 bg-cyan-200 text-cyan-800">Ansible</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full p-2 px-5 text-sm md:text-base">
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>The repository includes a straightforward steps and requirments to set up Kubernetes, Docker over AWS using Ansible.</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm pt-4">
-                    <h3 class="font-extrabold text-xl md:text-2xl p-2 px-5 md:px-0">Malicious <span class="text-[#B8241A]">Python Scripts</span></h3>
-                    <div class="w-full px-4 py-2 text-xs md:text-sm">
-                        <p class="flex items-center">
-                            <svg class="w-6 md:w-8 pr-2 md:pr-3 flex-none" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
-                            <a href="https://github.com/Geni-Wazir/Python-Scripts" target="_blank" class="font-medium">Python-Scripts</a>
-                        </p>
-                        <div class="flex pt-2">
-                            <div class="flex items-start">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 3H11.5118C12.2455 3 12.6124 3 12.9577 3.08289C13.2638 3.15638 13.5564 3.27759 13.8249 3.44208C14.1276 3.6276 14.387 3.88703 14.9059 4.40589L20.5 10M7.5498 10.0498H7.5598M9.51178 6H8.3C6.61984 6 5.77976 6 5.13803 6.32698C4.57354 6.6146 4.1146 7.07354 3.82698 7.63803C3.5 8.27976 3.5 9.11984 3.5 10.8V12.0118C3.5 12.7455 3.5 13.1124 3.58289 13.4577C3.65638 13.7638 3.77759 14.0564 3.94208 14.3249C4.1276 14.6276 4.38703 14.887 4.90589 15.4059L8.10589 18.6059C9.29394 19.7939 9.88796 20.388 10.5729 20.6105C11.1755 20.8063 11.8245 20.8063 12.4271 20.6105C13.112 20.388 13.7061 19.7939 14.8941 18.6059L16.1059 17.3941C17.2939 16.2061 17.888 15.612 18.1105 14.9271C18.3063 14.3245 18.3063 13.6755 18.1105 13.0729C17.888 12.388 17.2939 11.7939 16.1059 10.6059L12.9059 7.40589C12.387 6.88703 12.1276 6.6276 11.8249 6.44208C11.5564 6.27759 11.2638 6.15638 10.9577 6.08289C10.6124 6 10.2455 6 9.51178 6ZM8.0498 10.0498C8.0498 10.3259 7.82595 10.5498 7.5498 10.5498C7.27366 10.5498 7.0498 10.3259 7.0498 10.0498C7.0498 9.77366 7.27366 9.5498 7.5498 9.5498C7.82595 9.5498 8.0498 9.77366 8.0498 10.0498Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                            </div>
-                            <div class="flex gap-1 flex-wrap">
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-yellow-300 bg-yellow-200 text-yellow-800">Python</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-green-300 bg-green-200 text-green-800">Script</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-rose-300 bg-rose-200 text-rose-800">Automation</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-blue-300 bg-blue-200 text-blue-800">Windows</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full p-2 px-5 text-sm md:text-base">
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>Within the repository are Python scripts that I crafted during the initial stages of my journey into cybersecurity and Python programming. These scripts encompass intriguing processes, viewed from the perspective of a hacker.</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm pt-4">
-                    <h3 class="font-extrabold text-xl md:text-2xl p-2 px-5 md:px-0">Digispark <span class="text-[#B8241A]">Scripts</span></h3>
-                    <div class="w-full px-4 py-2 text-xs md:text-sm">
-                        <p class="flex items-center">
-                            <svg class="w-6 md:w-8 pr-2 md:pr-3 flex-none" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
-                            <a href="https://github.com/Geni-Wazir/Rubber-ducky-digispark" target="_blank" class="font-medium">Rubber-ducky-digispark</a>
-                        </p>
-                        <div class="flex pt-2">
-                            <div class="flex items-start">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 3H11.5118C12.2455 3 12.6124 3 12.9577 3.08289C13.2638 3.15638 13.5564 3.27759 13.8249 3.44208C14.1276 3.6276 14.387 3.88703 14.9059 4.40589L20.5 10M7.5498 10.0498H7.5598M9.51178 6H8.3C6.61984 6 5.77976 6 5.13803 6.32698C4.57354 6.6146 4.1146 7.07354 3.82698 7.63803C3.5 8.27976 3.5 9.11984 3.5 10.8V12.0118C3.5 12.7455 3.5 13.1124 3.58289 13.4577C3.65638 13.7638 3.77759 14.0564 3.94208 14.3249C4.1276 14.6276 4.38703 14.887 4.90589 15.4059L8.10589 18.6059C9.29394 19.7939 9.88796 20.388 10.5729 20.6105C11.1755 20.8063 11.8245 20.8063 12.4271 20.6105C13.112 20.388 13.7061 19.7939 14.8941 18.6059L16.1059 17.3941C17.2939 16.2061 17.888 15.612 18.1105 14.9271C18.3063 14.3245 18.3063 13.6755 18.1105 13.0729C17.888 12.388 17.2939 11.7939 16.1059 10.6059L12.9059 7.40589C12.387 6.88703 12.1276 6.6276 11.8249 6.44208C11.5564 6.27759 11.2638 6.15638 10.9577 6.08289C10.6124 6 10.2455 6 9.51178 6ZM8.0498 10.0498C8.0498 10.3259 7.82595 10.5498 7.5498 10.5498C7.27366 10.5498 7.0498 10.3259 7.0498 10.0498C7.0498 9.77366 7.27366 9.5498 7.5498 9.5498C7.82595 9.5498 8.0498 9.77366 8.0498 10.0498Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                            </div>
-                            <div class="flex gap-1 flex-wrap">
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-green-300 bg-green-200 text-green-800">Script</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-blue-300 bg-blue-200 text-blue-800">Windows</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-emerald-300 bg-emerald-200 text-emerald-800">Arduino</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-rose-300 bg-rose-200 text-rose-800">Automation</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-indigo-300 bg-indigo-200 text-indigo-800">C++</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-amber-300 bg-amber-200 text-amber-800">Rubber Ducky</span>
+{% set category_colors = {
+    'Security': 'text-[#2F80ED] bg-[#2F80ED]/10',
+    'AI & LLMs': 'text-violet-500 bg-violet-500/10',
+    'DevOps': 'text-emerald-500 bg-emerald-500/10',
+    'Automation': 'text-amber-500 bg-amber-500/10',
+} %}
 
-                            </div>
-                        </div>
+{% set tag_colors = [
+    'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-500/10 dark:text-blue-300 dark:border-blue-500/20',
+    'bg-violet-50 text-violet-700 border-violet-200 dark:bg-violet-500/10 dark:text-violet-300 dark:border-violet-500/20',
+    'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/20',
+    'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-500/20',
+    'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-500/20',
+    'bg-cyan-50 text-cyan-700 border-cyan-200 dark:bg-cyan-500/10 dark:text-cyan-300 dark:border-cyan-500/20',
+] %}
+
+{% set projects = [
+    {
+        'icon_bg': 'bg-slate-800',
+        'icon': 'scanner',
+        'category': 'Security',
+        'title_plain': 'Vulnerability Scanner',
+        'title_accent': 'Chowkidar',
+        'description': 'A standalone platform for security researchers to scan web applications and AWS environments. Simplifies vulnerability detection with an intuitive interface, 300+ detection rules, automated PDF reporting and email notifications.',
+        'tags': ['Frontend', 'Backend', 'Docker', 'AWS', 'Automation', 'SQL', 'Flask', 'Reporting', 'Scheduler', 'Redis'],
+        'code_url': 'https://github.com/Geni-Wazir/chowkidar',
+        'demo_url': None,
+    },
+    {
+        'icon_bg': 'bg-violet-600',
+        'icon': 'chat',
+        'category': 'AI & LLMs',
+        'title_plain': 'Jack -',
+        'title_accent': 'AI Chatbot Plugin',
+        'description': "A Chrome extension that provides a powerful AI chatbot to talk to. Leverages OpenAI's Chat API (gpt-3.5-turbo) and maintains a history of interactions to deliver relevant and context-aware responses.",
+        'tags': ['Frontend', 'Backend', 'Extension', 'MongoDB', 'Chat GPT', 'AI', 'Chatbot', 'Plugin'],
+        'code_url': 'https://github.com/Vishvam10/Jack-Chatbot-Plugin',
+        'demo_url': None,
+    },
+    {
+        'icon_bg': 'bg-emerald-700',
+        'icon': 'cube',
+        'category': 'DevOps',
+        'title_plain': 'Setup Kubernetes',
+        'title_accent': 'via Ansible',
+        'description': 'Automates the setup and configuration of a Kubernetes cluster using Ansible. Streamlines deployment with reusable playbooks and environment-specific configurations.',
+        'tags': ['Ansible', 'Kubernetes', 'AWS', 'Docker', 'Automation'],
+        'code_url': 'https://github.com/Geni-Wazir/Set-Ansible',
+        'demo_url': None,
+    },
+    {
+        'icon_bg': 'bg-rose-800',
+        'icon': 'terminal',
+        'category': 'Security',
+        'title_plain': 'Malicious',
+        'title_accent': 'Python Scripts',
+        'description': 'A collection of Python scripts crafted during the early stages of my journey into cybersecurity and Python programming, covering intriguing processes viewed from the perspective of a hacker.',
+        'tags': ['Python', 'Automation', 'Windows'],
+        'code_url': 'https://github.com/Geni-Wazir/Python-Scripts',
+        'demo_url': None,
+    },
+    {
+        'icon_bg': 'bg-amber-600',
+        'icon': 'bolt',
+        'category': 'Security',
+        'title_plain': 'Digispark',
+        'title_accent': 'Scripts',
+        'description': 'Scripts for the Digispark, a USB Arduino microprocessor, that make it function like a Rubber Ducky - identifying itself as a keyboard and executing designated keystrokes upon insertion.',
+        'tags': ['C++', 'Arduino', 'Rubber Ducky', 'Automation', 'Windows'],
+        'code_url': 'https://github.com/Geni-Wazir/Rubber-ducky-digispark',
+        'demo_url': None,
+    },
+    {
+        'icon_bg': 'bg-slate-600',
+        'icon': 'mic',
+        'category': 'Automation',
+        'title_plain': 'Python',
+        'title_accent': 'Assistant',
+        'description': 'A Python voice assistant that receives instructions via voice input and executes tasks such as web searches, email composition, video playback, system processes and facial recognition.',
+        'tags': ['Python', 'OpenCV', 'Automation', 'Windows', 'Emails'],
+        'code_url': 'https://github.com/Geni-Wazir/Assistant',
+        'demo_url': None,
+    },
+] %}
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 pt-10 md:pt-14 pb-28 md:pb-20">
+    <div class="max-w-2xl">
+        <p class="uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs font-semibold text-gray-500 dark:text-gray-400">
+            Projects
+        </p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">
+            Build Automate <span class="text-[#2F80ED]">Solve</span>
+        </h1>
+        <p class="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300">
+            A collection of tools, automation scripts and creative projects that help solve real-world problems, improve security and make life a little easier.
+        </p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {% for project in projects %}
+        <div class="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-5 md:p-6 flex flex-col hover:shadow-lg hover:border-[#2F80ED]/40 transition-all hover:-translate-y-0.5">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-start gap-3">
+                    <div class="shrink-0 w-12 h-12 rounded-xl {{ project.icon_bg }} text-white flex items-center justify-center">
+                        {% if project.icon == 'scanner' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5M20.25 3.75 15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>
+                        {% elif project.icon == 'shield' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
+                        {% elif project.icon == 'chat' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" /></svg>
+                        {% elif project.icon == 'cube' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>
+                        {% elif project.icon == 'terminal' %}
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 19H21M3 5L11 12L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        {% elif project.icon == 'bolt' %}
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
+                        {% elif project.icon == 'mic' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" /></svg>
+                        {% endif %}
                     </div>
-                    <div class="w-full p-2 px-5 text-sm md:text-base">
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>The objective of this project was to generate diverse scripts for Digispark, an Arduino microprocessor characterized by a USB Type-A input.</span>
-                        </p>
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>Utilized this code to make it function akin to a Rubber Ducky. Upon insertion into a computer, it would identify itself as a keyboard and carry out the designated keystrokes as instructed.</span>
-                        </p>
-                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white pt-1.5">
+                        {{ project.title_plain }} <span class="text-[#2F80ED]">{{ project.title_accent }}</span>
+                    </h3>
                 </div>
-                <div class="bg-gray-500/10 rounded-xl flex flex-col items-center shadow-xl backdrop-blur-sm pt-4">
-                    <h3 class="font-extrabold text-xl md:text-2xl p-2 px-5 md:px-0">Python <span class="text-[#B8241A]">Assistant</span></h3>
-                    <div class="w-full px-4 py-2 text-xs md:text-sm">
-                        <p class="flex items-center">
-                            <svg class="w-6 md:w-8 pr-2 md:pr-3 flex-none" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
-                            <a href="https://github.com/Geni-Wazir/Assistant" target="_blank" class="font-medium">Assistant</a>
-                        </p>
-                        <div class="flex pt-2">
-                            <div class="flex items-start">
-                                <svg class="w-6 md:w-8 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 3H11.5118C12.2455 3 12.6124 3 12.9577 3.08289C13.2638 3.15638 13.5564 3.27759 13.8249 3.44208C14.1276 3.6276 14.387 3.88703 14.9059 4.40589L20.5 10M7.5498 10.0498H7.5598M9.51178 6H8.3C6.61984 6 5.77976 6 5.13803 6.32698C4.57354 6.6146 4.1146 7.07354 3.82698 7.63803C3.5 8.27976 3.5 9.11984 3.5 10.8V12.0118C3.5 12.7455 3.5 13.1124 3.58289 13.4577C3.65638 13.7638 3.77759 14.0564 3.94208 14.3249C4.1276 14.6276 4.38703 14.887 4.90589 15.4059L8.10589 18.6059C9.29394 19.7939 9.88796 20.388 10.5729 20.6105C11.1755 20.8063 11.8245 20.8063 12.4271 20.6105C13.112 20.388 13.7061 19.7939 14.8941 18.6059L16.1059 17.3941C17.2939 16.2061 17.888 15.612 18.1105 14.9271C18.3063 14.3245 18.3063 13.6755 18.1105 13.0729C17.888 12.388 17.2939 11.7939 16.1059 10.6059L12.9059 7.40589C12.387 6.88703 12.1276 6.6276 11.8249 6.44208C11.5564 6.27759 11.2638 6.15638 10.9577 6.08289C10.6124 6 10.2455 6 9.51178 6ZM8.0498 10.0498C8.0498 10.3259 7.82595 10.5498 7.5498 10.5498C7.27366 10.5498 7.0498 10.3259 7.0498 10.0498C7.0498 9.77366 7.27366 9.5498 7.5498 9.5498C7.82595 9.5498 8.0498 9.77366 8.0498 10.0498Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                            </div>
-                            <div class="flex gap-1 flex-wrap">
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-yellow-300 bg-yellow-200 text-yellow-800">Python</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-green-300 bg-green-200 text-green-800">Script</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-fuchsia-300 bg-fuchsia-200 text-fuchsia-800">OpenCV</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-rose-300 bg-rose-200 text-rose-800">Automation</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-blue-300 bg-blue-200 text-blue-800">Windows</span>
-                                <span class="rounded-xl px-2 whitespace-nowrap border border-orange-300 bg-orange-200 text-orange-800">Emails</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full p-2 px-5 text-sm md:text-base">
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>The aim of this project was to develop a Python program capable of receiving user instructions through voice input, and subsequently executing various actions accordingly.</span>
-                        </p>
-                        <p class="flex items-start py-1">
-                            <svg class="w-3 md:w-5 pt-1 pr-1 md:pr-2 flex-none" viewBox="0 0 24 24" fill="#B8241A" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" stroke="#B8241A" stroke-width="1.5"></path> </g></svg>
-                            <span>These instructions encompass a range of tasks such as web searches, email composition, video playback, and more. The program also encompasses system processes and incorporates facial recognition functionality.</span>
-                        </p>
-                    </div>
-                </div>
+                <span class="shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap {{ category_colors[project.category] }}">{{ project.category }}</span>
+            </div>
+
+            <p class="mt-3 text-sm text-gray-600 dark:text-gray-300 flex-1">{{ project.description }}</p>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+                {% for tag in project.tags %}
+                <span class="text-xs font-medium px-2.5 py-1 rounded-full border {{ tag_colors[loop.index0 % tag_colors|length] }}">{{ tag }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-gray-100 dark:border-white/10 flex items-center gap-5 text-sm font-medium">
+                {% if project.code_url %}
+                <a href="{{ project.code_url }}" target="_blank" class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-[#2F80ED] transition-colors">
+                    <svg class="w-4 h-4 flex-none" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 0 10.253c0 4.406 2.865 8.14 6.839 9.458.5.092.679-.217.679-.481 0-.237-.008-.865-.013-1.7-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 10 5.354c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.178.577.687.48A10.001 10.001 0 0 0 20 10.253 9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd" /></svg>
+                    Code
+                </a>
+                {% endif %}
+                {% if project.demo_url %}
+                <a href="{{ project.demo_url }}" target="_blank" class="flex items-center gap-1.5 text-[#2F80ED] hover:underline">
+                    <svg class="w-4 h-4 flex-none" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                    Live Demo
+                </a>
+                {% endif %}
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
