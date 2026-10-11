@@ -2,6 +2,5 @@
 import { inject } from './analytics.mjs';
 
 inject({
-  mode: 'auto',
-  debug: false
+  mode: 'auto'
 });
